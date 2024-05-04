@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="shortcut icon" type="image" href="./image/favicon.ico">
+    <title>Cloning Facebook AdmnHa</title>
+    <style>
+        @import url(CSS/default.css);
+        @import url(CSS/gnb.css);
+        @import url(CSS/utama.css);
+        @import url(CSS/Menu.css);
+        .akun-mdl {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+
+            width: 360px;
+            padding: 15px;
+            box-sizing: border-box;
+
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px lightgray;
+            background-color: white;
+
+            display: none;
+        }
+        .akun-info {
+            width: 325px;
+            padding: 15px;
+
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px lightgray;
+
+            margin-bottom: 10px;
+        }
+        .akun-info > div {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .akun-info > div:hover {
+            background-color: #f2f2f2;
+        }        
+        .akun-prfl {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .akun-prfl:hover {
+            background-color: #f2f2f2;
+        }
+        .akun-prfl > div {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #f2f2f2;
+
+            margin-right: 10px;
+        }
+        .akun-prfl > span {
+            margin-right: auto;
+        }
+        .akun-info > hr {
+            width: 100%;
+        }
+        .akun-info > div:last-child {
+            color: blue;
+            height: 28px;
+            border-radius: 8px;
+            padding: 10px 5px;
+            align-items: flex-start;
+        }
+        .akun-mdl > li > div {
+            width: 36px; height: 36px;
+            overflow: hidden;
+            border-radius: 50%; 
+            background-color: #e4e6eb;
+        }
+        .akun-mdl > li > span {
+            margin-left: 5px;
+            margin-right: auto;
+        }
+        .akun-mdl > li {
+            padding: 10px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }        
+        .akun-mdl > li:hover {
+            background-color: #f2f2f2;
+        }
+        .akun-mdl > li:hover > img {
+            filter: brightness(0.95);
+        }
+    </style>
+    <script>
+        function showIcon() {
+            $('#search-icon').show()
+        }
+        function hideIcon() {
+            $('#search-icon').hide()
+        }
+        function showBtn() {
+            $('#btn-post').show()
+        }
+        function post() {
+            alert('Anda telah berhasil menambahkan Feed Baru')
+            $('#btn-post').hide()
+        }
+        function MnMdl() {
+            let status = $('#mn-mdl').css('display');
+            if (status == 'block') {
+                $('#mn-mdl').hide();
+                $('#gnb-mn').attr('src', 'image/gnb/6.png');
+            } else {
+                $('#mn-mdl').show();
+                $('#gnb-mn').attr('src', 'image/gnb/10.png');
+            }
+        }
+        function AknMdl() {
+            let status = $('#akn-mdl').css('display');
+            if (status == 'block') {
+                $('#akn-mdl').hide();
+            } else {
+                $('#akn-mdl').show();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="gnb flex-row">
+        <div class="gnb-kiri flex-row">
+            <a href=""><img width="40" src="image/logo.png" alt=""></a>
+            <div class="search-box flex-row">
+                <i id="search-icon" class="bi bi-search"></i>
+                <input type="text" onfocus="hideIcon()" onblur="showIcon()">
+            </div>
+        </div>
+        <div class="gnb-tengah flex-row">
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/1.png" alt="">
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/2.png" alt="">
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/3.png" alt="">
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/4.png" alt="">
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/5.png" alt="">
+            </div>
+        </div>
+        <div class="gnb-kanan flex-row">
+            <div onclick="MnMdl()" class="nav-tab-kanan flex-row">
+                <img id="gnb-mn" src="image/gnb/6.png" alt="">
+            </div>
+            <div class="nav-tab-kanan flex-row">
+                <img src="image/gnb/7.png" alt="">
+            </div>
+            <div class="nav-tab-kanan flex-row">
+                <img src="image/gnb/8.png" alt="">
+            </div>
+            <div onclick="AknMdl()" class="nav-tab-kanan flex-row">
+                <img src="image/gnb/9.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="utama flex-row">
+        <div class="utama-kiri">
+            <li class="flex-row">
+                <div class="flex-row">
+                    <img src="image/feed/1.png" alt="">
+                </div>
+                <span>AdmnHa</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/2.png" alt="">
+                <span>Fine Friends</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/3.png" alt="">
+                <span>Memories</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/4.png" alt="">
+                <span>Groups</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/5.png" alt="">
+                <span>Watch</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/6.png" alt="">
+                <span>Saved</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/7.png" alt="">
+                <span>Pages</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/8.png" alt="">
+                <span>Events</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/9.png" alt="">
+                <span>Most Recents</span>
+            </li>
+            <li class="flex-row">
+                <img src="image/feed/10.png" alt="">
+                <span>Favorites</span>
+            </li>
+            <li class="flex-row">
+                <div style="width: 32px; height: 32px" class="flex-row">
+                    <img src="image/feed/seemore.png" alt="">
+                </div>
+                <span>See More</span>
+            </li>
+            <hr>
+        </div>
+        <div class="utama-tengah">
+            <div class="story">
+                <div class="story-top flex-row">
+                    <div class="flex-row">Stories</div>
+                    <div class="flex-row">Reels</div>
+                    <div class="flex-row">Rooms</div>
+                </div>
+                <div class="story-bottom flex-row">
+                    <div class="profile flex-col">
+                        <div class="profil-img"></div>
+                        <span>Create Story</span>
+                        <div class="plus flex-row">
+                            <img src="image/feed/12.png" alt="">
+                        </div>
+                    </div>
+                    <div class="deskrip flex-col">
+                        <li class="flex-row">
+                            <img src="image/feed/13.png" alt="">
+                            <span>Share everyday moments with Friends and Family.</span>
+                        </li>
+                        <li class="flex-row">
+                            <img src="image/feed/14.png" alt="">
+                            <span>Stories disappear after 24 hours.</span>
+                        </li>
+                        <li class="flex-row">
+                            <img src="image/feed/15.png" alt="">
+                            <span>Replies and reactions are private.</span>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="create flex-col">
+                <div class="crt-top flex-row">
+                    <div class="crt-prfl">
+                        <img src="image/feed/1.png" alt="">
+                    </div>
+                    <input onfocus="showBtn()" onblur="hideBtn()" type="text"
+                        placeholder="What's on your mind, AdmnHa ?">
+                </div>
+                <div class="crt-bot flex-row">
+                    <li class="flex-row">
+                        <img src="image/feed/16.png" alt="">
+                        <span>Live Video</span>
+                    </li>
+                    <li class="flex-row">
+                        <img src="image/feed/17.png" alt="">
+                        <span>Photo/video</span>
+                    </li>
+                    <li class="flex-row">
+                        <img src="image/feed/18.png" alt="">
+                        <span>Feeling/activity</span>
+                    </li>
+                </div>
+                <button onclick="post()" id="btn-post">Let's post it !</button>
+            </div>
+            <div class="feed flex-col">
+                <div class="feed-top flex-row">
+                    <div class="feed-prfl flex-row">
+                        <img width="40px" height="40px" src="image/feed/3.jpeg" alt="">
+                    </div>
+                    <div class="feed-username flex-col">
+                        <span>Adam Haryanto</span>
+                        <span>Sponsored <img src="image/feed/21.png" alt=""></span>
+                    </div>
+                    <div class="feed-more flex-row">
+                        <img src="image/feed/20.png" alt="">
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt saepe cupiditate alias, assumenda
+                    nulla id nostrum adipisci asperiores obcaecati odit vero. Ipsam, nihil quas!</p>
+                <img src="image/feed/post 1.jpg" alt="">
+                <div class="feed-like flex-row">
+                    <img src="image/feed/23.png" alt="">
+                    <span class="like-count">2.8k</span>
+                    <span>258 Share</span>
+                </div>
+                <div class="feed-btn flex-row">
+                    <li class="flex-row">
+                        <img width="24" src="image/feed/24.png" alt="">
+                        <span>Like</span>
+                    </li>
+                    <li class="flex-row">
+                        <img width="24" src="image/feed/25.png" alt="">
+                        <span>Comment</span>
+                    </li>
+                    <li class="flex-row">
+                        <img width="24" src="image/feed/26.png" alt="">
+                        <span>Share</span>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mn-mdl" class="menu-modal">
+        <span>Menu</span>
+        <div class="konten flex-row">
+            <div class="sosial flex-col">
+                <div class="search-modal flex-row">
+                    <i id="search-icon" class="bi bi-search"></i>
+                    <input type="text" name="" id="">
+                </div>
+                <span>Sosial</span>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/1.png" alt="">
+                    <div>
+                        <span>Events</span>
+                        <p>Organize or find events and other thing to do in online or nearby.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/2.png" alt="">
+                    <div>
+                        <span>Find Friends</span>
+                        <p>Search for friends or people you may know.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/3.png" alt="">
+                    <div>
+                        <span>Groups</span>
+                        <p>Connect with people who share your interests.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/4.png" alt="">
+                    <div>
+                        <span>News Feed</span>
+                        <p>See rellevant posts from people and pages you follow.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/5.png" alt="">
+                    <div>
+                        <span>Favorites</span>
+                        <p>View posts by favorites.</p>
+                    </div>
+                </li>
+            </div>
+            <div class="buat flex-col">
+                <span>Create</span>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/6.png" alt="">
+                    </div>
+                    <span>Post</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/7.png" alt="">
+                    </div>
+                    <span>Story</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/8.png" alt="">
+                    </div>
+                    <span>Room</span>
+                </li>
+                <hr>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/9.png" alt="">
+                    </div>
+                    <span>Page</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/10.png" alt="">
+                    </div>
+                    <span>Ad</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/11.png" alt="">
+                    </div>
+                    <span>Group</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/12.png" alt="">
+                    </div>
+                    <span>Event</span>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="akun-mdl" id="akn-mdl">
+        <div class="akun-info flex-col">
+            <div class="akun-prfl flex-row">
+                <div class="flex-row">
+                    <img width="40" src="image/gnb/9.png" alt="">
+                </div>
+                <span>AdmnHa</span>
+            </div>
+            <hr>
+            <div class="flex-col">See all profile</div>
+        </div>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="22" src="image/modal/13.png" alt="">                
+            </div>
+            <span>Settings & Privacy</span>
+            <img width="24" src="image/modal/18.png" alt="">
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="22" src="image/modal/14.png" alt="">                
+            </div>
+            <span>Help & support</span>
+            <img width="24" src="image/modal/18.png" alt="">
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="22" src="image/modal/15.png" alt="">                
+            </div>
+            <span>Dispay & accesibility</span>
+            <img width="24" src="image/modal/18.png" alt="">
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="22" src="image/modal/16.png" alt="">                
+            </div>
+            <span>Give feedback</span>
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="22" src="image/modal/17.png" alt="">                
+            </div>
+            <span>Logout</span>
+        </li>
+    </div>
+</body>
+
+</html>
